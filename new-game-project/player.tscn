@@ -2,19 +2,89 @@
 
 [ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://6m4ajku6b45c" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_stand.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bhshfpqr06ple" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_jump.png" id="3_bwjto"]
+[ext_resource type="Texture2D" uid="uid://ba81e0mg87f3h" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk01.png" id="4_606se"]
+[ext_resource type="Texture2D" uid="uid://dwvg5o4kswvwm" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk02.png" id="5_u1c27"]
+[ext_resource type="Texture2D" uid="uid://b4mav4k6xesbj" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk03.png" id="6_op7ga"]
+[ext_resource type="Texture2D" uid="uid://c5l1x8n1p563i" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk04.png" id="7_q13i1"]
+[ext_resource type="Texture2D" uid="uid://ck5m4frusc8kn" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk05.png" id="8_pylmc"]
+[ext_resource type="Texture2D" uid="uid://bb8bbdvorswbo" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk06.png" id="9_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://bnjbcpk10f1v7" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk07.png" id="10_5tmop"]
+[ext_resource type="Texture2D" uid="uid://dmmyo60buijbl" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk08.png" id="11_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://c33vd5hrbprau" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk09.png" id="12_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://callotkurhxsa" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk10.png" id="13_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://cgm2soweam8b7" path="res://assets/kenney_platformer-art-deluxe/Base pack/Player/p1_walk/PNG/p1_walk11.png" id="14_jm5j8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqtel"]
 radius = 34.0
 height = 96.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7hik5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bwjto")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q13i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7ahtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dx0e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jm5j8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 20.0
+}]
+
 [node name="player" type="CharacterBody2D" unique_id=91142086]
 script = ExtResource("1_onrkg")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1755957220]
-texture = ExtResource("2_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1386097058]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1226886869]
 position = Vector2(-1, 4)
 shape = SubResource("CapsuleShape2D_hqtel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=682134343]
+sprite_frames = SubResource("SpriteFrames_7hik5")
+animation = &"idle"
